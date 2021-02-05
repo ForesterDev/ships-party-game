@@ -42,6 +42,7 @@ jobs:
         uses: game-ci/unity-builder@v2.0-alpha-6
         with:
           targetPlatform: Android
+          allowDirtyBuild: true
 
       # Output
       - uses: actions/upload-artifact@v1
