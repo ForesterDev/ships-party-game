@@ -1,0 +1,54 @@
+name: BuildUnity
+
+on:
+  pull_request: {}
+  push: { branches: [master] }  
+
+env:
+  UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+  UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+  UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+
+jobs:
+  build:
+    name: Build my project ✨
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+      
+      # Activamos
+      - name: Unity - Activate
+        uses: game-ci/unity-activate@v1.3
+
+
+      # Cache
+      - uses: actions/cache@v1.1.0
+        with:
+          path: Library
+          key: Library
+
+      # Test
+#      - name: Run tests
+#        uses: webbertakken/unity-test-runner@v1.3
+#        with:
+#          unityVersion: 2019.2.11f1
+
+      # Build
+      - name: Build project
+        uses: game-ci/unity-builder@v2.0-alpha-6
+        with:
+          targetPlatform: Android
+
+      # Output
+      - uses: actions/upload-artifact@v1
+        with:
+          name: Build
+          path: build
+          
+      - name: Return license
+        uses: webbertakken/unity-return-license@v1
+        if: always()
