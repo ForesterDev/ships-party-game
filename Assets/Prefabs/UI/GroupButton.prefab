@@ -64,10 +64,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: En local
+  m_text: Online
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ac71fa338967c764091b3f4f7c177eb3, type: 2}
-  m_sharedMaterial: {fileID: 2749525893599137424, guid: ac71fa338967c764091b3f4f7c177eb3,
+  m_fontAsset: {fileID: 11400000, guid: 108574396f9c4854abefc245497074e4, type: 2}
+  m_sharedMaterial: {fileID: 8212651209877206462, guid: 108574396f9c4854abefc245497074e4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
+  m_fontSize: 41.9
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 274984631317139122}
   - component: {fileID: 7975914771779539421}
   - component: {fileID: 1038635976634522251}
+  - component: {fileID: 571371014620960994}
   m_Layer: 5
   m_Name: GroupButton
   m_TagString: Untagged
@@ -233,7 +234,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.11372549, g: 0.33333334, b: 0.36862746, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -253,3 +254,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &571371014620960994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688630887182817704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a53dcfc2b29a343b908d03f488f807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameColors: {fileID: 11400000, guid: b8c0fcaab96930b47bea5dcac7986187, type: 2}

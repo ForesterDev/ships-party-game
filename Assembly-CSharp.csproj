@@ -64,11 +64,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Constants\Scenes.cs" />
+    <Compile Include="Assets\Scripts\Enums\GameFormat.cs" />
+    <Compile Include="Assets\Scripts\Enums\GameSize.cs" />
+    <Compile Include="Assets\Scripts\Enums\GameType.cs" />
     <Compile Include="Assets\Scripts\Exit.cs" />
-    <Compile Include="Assets\Scripts\MainController.cs" />
-    <Compile Include="Assets\Scripts\UI\Colors.cs" />
-    <Compile Include="Assets\Scripts\UI\ToggleButton.cs" />
-    <Compile Include="Assets\Scripts\UI\ToggleButtonsGroup.cs" />
+    <Compile Include="Assets\Scripts\Game.cs" />
+    <Compile Include="Assets\Scripts\Scenes\CreateGameScene.cs" />
+    <Compile Include="Assets\Scripts\Scenes\MainScene.cs" />
+    <Compile Include="Assets\Scripts\Views\Colors.cs" />
+    <Compile Include="Assets\Scripts\Views\CreateGameView.cs" />
+    <Compile Include="Assets\Scripts\Views\ToggleButton.cs" />
+    <Compile Include="Assets\Scripts\Views\ToggleButtonsGroup.cs" />
     <Compile Include="Assets\Thirdparty\Unity Samples\Scripts\ActiveStateToggler.cs" />
     <Compile Include="Assets\Thirdparty\Unity Samples\Scripts\ApplicationManager.cs" />
     <Compile Include="Assets\Thirdparty\Unity Samples\Scripts\ChangeColor.cs" />
