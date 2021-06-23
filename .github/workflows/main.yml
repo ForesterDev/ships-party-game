@@ -1,59 +1,53 @@
-name: BuildUnity
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+env:
+  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
 
 on:
   pull_request: {}
-  push: { branches: [master] }  
-
-env:
-  UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-  UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-  UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+  push: { branches: [ main ] }
 
 jobs:
   build:
-    name: Build my project ✨
+    name: Build my project
     runs-on: ubuntu-latest
     steps:
-      # Checkout
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          lfs: true
-      
-      # Activamos
-      - name: Unity - Activate
-        uses: game-ci/unity-activate@v1.3
-
-
-      # Cache
-      - uses: actions/cache@v1.1.0
-        with:
-          path: Library
-          key: Library
-
-      # Test
-#      - name: Run tests
-#        uses: webbertakken/unity-test-runner@v1.3
-#        with:
-#          unityVersion: 2019.2.11f1
-
-      # Build
-      - name: Build project
-        uses: game-ci/unity-builder@v2.0-alpha-6
-        env:
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
-        with:
-          targetPlatform: Android
-          allowDirtyBuild: true
-
-      # Output
-      - uses: actions/upload-artifact@v1
-        with:
-          name: Build
-          path: build
-          
-      - name: Return license
-        uses: webbertakken/unity-return-license@v1
-        if: always()
+        # Checkout 
+        - name: Checkout repository
+          uses: actions/checkout@v2
+          with:
+            lfs: true
+        
+        # Cache
+        - uses: actions/cache@v1.1.0
+          with:
+            path: ./Library
+            key: Library-unity-ci-WebGL
+            restore-keys: |
+              Library-unity-ci-
+              Library-
+            
+        # Test
+        - name: Unity - Test runner
+          uses: game-ci/unity-test-runner@v2.0-alpha-2
+          env:
+            UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          with:
+            unityVersion: 2019.4.14f1
+            
+        # Build
+        - name: Unity - Builder
+          uses: game-ci/unity-builder@v2.0-alpha-6
+          env:
+            UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          with:
+            unityVersion: 2019.4.14f1
+            targetPlatform: WebGL
+              
+        # Output
+        - uses: actions/upload-artifact@v1
+          with:
+            name: Build
+            path: build
