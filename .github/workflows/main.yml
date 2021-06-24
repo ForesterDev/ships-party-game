@@ -19,6 +19,12 @@ jobs:
           uses: actions/checkout@v2
           with:
             lfs: true
+            
+        - name: Delete lfs files
+          shell: bash
+          run: |
+            rm ./Assets/Thirdparty/*.TGA && \
+            rm ./Assets/Thirdparty/*.TGA.meta
         
         # Cache
         - uses: actions/cache@v1.1.0
