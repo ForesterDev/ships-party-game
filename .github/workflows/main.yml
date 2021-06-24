@@ -23,8 +23,12 @@ jobs:
         - name: Delete lfs files
           shell: bash
           run: |
+            echo "Before" && \
+            ls ./Assets/Thirdparty/ && \
             rm ./Assets/Thirdparty/*.TGA && \
-            rm ./Assets/Thirdparty/*.TGA.meta
+            rm ./Assets/Thirdparty/*.TGA.meta && \
+            echo "After"
+            ls ./Assets/Thirdparty/
         
         # Cache
         - uses: actions/cache@v1.1.0
