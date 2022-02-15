@@ -54,7 +54,8 @@ jobs:
             UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           with:
             unityVersion: 2019.4.14f1
-            targetPlatform: WebGL
+            targetPlatform: Windows
+            allowDirtyBuild: true
               
         # Output
         - uses: actions/upload-artifact@v1
