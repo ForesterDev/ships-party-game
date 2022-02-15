@@ -54,7 +54,7 @@ jobs:
             UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           with:
             unityVersion: 2019.4.14f1
-            targetPlatform: Windows
+            targetPlatform: StandaloneWindows64
             allowDirtyBuild: true
               
         # Output
